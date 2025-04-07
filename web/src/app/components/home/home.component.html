@@ -1,0 +1,14 @@
+<form [formGroup]="login" (submit)="handleSubmit(); login.reset()">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" formControlName="email" id="">
+  </div>
+  <div>
+    <label form="username">Username</label>
+    <input type="text" formControlName="username" id="">
+  </div>
+  <button type="submit" [disabled]="!login.valid">Envoyer</button>
+</form>
+<button (click)="logout()">
+  Logout
+</button>
