@@ -2,8 +2,8 @@ import express, { NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { userRouter } from "./routes/user.routes";
-import { sessionRouter } from "./routes/session.routes";
-import { authenticateToken } from "./middlewares/authenticate";
+import { authRouter } from "./routes/auth.routes";
+import { authenticateToken } from "./middlewares/auth";
 
 const app = express();
 const hostname = "127.0.0.1";
@@ -26,7 +26,7 @@ app.use(
 );
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-  const paths = ["/health", "/session/login", "/session/signup"];
+  const paths = ["/health", "/api/auth/login", "/api/auth/signup"];
   if (paths.includes(req.path)) {
     return next();
   }
@@ -35,12 +35,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.get("/health", (req: Request, res: Response) => {
-  res.status(200).json({ isHealthy: true });
+  res.status(200).send('OK')
   return;
 });
-app.use("/users", userRouter);
-
-app.use("/session", sessionRouter);
+app.use("/api/users", userRouter);
+app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}`);

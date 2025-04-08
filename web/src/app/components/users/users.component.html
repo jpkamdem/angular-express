@@ -1,0 +1,13 @@
+@if (users()) {
+  <ul>
+    @for (user of users(); track user.id) {
+      <li>
+        <p>
+          {{user.name}}
+        </p>
+      </li>
+    }
+  </ul>
+} @else {
+  <p>rien du tout</p>
+}

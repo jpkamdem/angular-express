@@ -1,0 +1,84 @@
+.center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  width: 500px;
+  padding: var(--p-2xl);
+  border-radius: var(--rounded-xs);
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.form-container > h3 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  padding: var(--p-sm) 0;
+}
+
+.form-container > h5 {
+  font-size: var(--text-lg);
+  font-weight: 400;
+  padding: var(--p-sm) 0 var(--p-xl);
+}
+
+.form-container > div {
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: var(--p-md) 0;
+  /* background: red; */
+}
+
+.form-container > div > input {
+  border-radius: var(--rounded-xs);
+  border: var(--border-xs) solid lightgray;
+  padding: var(--p-md) var(--p-md);
+}
+
+.form-container > div > input:focus {
+  outline: var(--border-xs) ridge rgb(122, 122, 122);
+}
+
+.required {
+  font-size: var(--text-sm);
+}
+
+.required::after {
+  content: "*";
+  color: red;
+  padding: 0 0 0 var(--p-sm);
+}
+
+.form-container > button {
+  border: var(--border-xs) solid var(--pitch-dark);
+  border-radius: var(--rounded-xs);
+  padding: var(--p-md);
+  background-color: var(--pitch-dark);
+  margin: var(--p-sm) 0;
+  color: white;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-container > button:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  border-color: lightgray;
+}
+
+.form-container > button:last-child {
+  border-color: red;
+  background-color: red;
+}
+
+.form-container > button:last-child:hover {
+  background-color: lightcoral;
+  border-color: lightcoral;
+  color: red;
+}

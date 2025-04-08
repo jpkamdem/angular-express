@@ -10,6 +10,7 @@ RUN npm run build
 FROM node:18-alpine AS runtime
 WORKDIR /app
 
+RUN apk add --no-cache curl
 RUN npm install pm2 -g
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./

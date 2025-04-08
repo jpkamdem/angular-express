@@ -1,0 +1,18 @@
+<div class="center">
+  <form [formGroup]="login" (submit)="handleSubmit(); login.reset()">
+    <section class="form-container">
+      <h3>Bienvenue</h3>
+      <h5>Veuillez compléter le formulaire.</h5>
+      <div>
+        <label for="email" class="required">Adresse mail</label>
+        <input type="email" name="email" formControlName="email" placeholder="Votre email" required="required">
+      </div>
+      <div>
+        <label for="username" class="required">Nom d'utilisateur</label>
+        <input type="text" name="username" formControlName="username" placeholder="Votre nom d'utilisateur" required="required">
+      </div>
+      <button type="submit" [disabled]="!login.valid">Se connecter</button>
+      <button (click)="logout()">Se déconnecter</button>
+    </section>
+  </form>
+</div>

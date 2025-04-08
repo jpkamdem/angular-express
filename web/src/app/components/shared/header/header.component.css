@@ -1,0 +1,27 @@
+nav {
+  background: var(--crimson);
+}
+
+ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+li > a {
+  display: inline-block;
+  height: 100%;
+  padding: var(--p-2xl);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+li > a:hover {
+  background-color: white;
+  color: var(--crimson);
+}
+
+.active {
+  color: red;
+}

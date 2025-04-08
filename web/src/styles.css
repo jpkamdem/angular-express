@@ -1,16 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --gray: rgb(53, 53, 53);
-  --text: rgb(201, 201, 201);
+  --off-white: oklch(1 0 40.24);
+  --pitch-dark: oklch(0.25 0 0);
+  --crimson: oklch(0.32 0.0849 23.1);
+
+  --p-xs: 0.25em;
+  --p-sm: 0.5em;
+  --p-md: 0.75em;
+  --p-lg: 1em;
+  --p-xl: 1.25em;
+  --p-2xl: 1.75em;
+  --p-3xl: 2.5em;
+  --p-4xl: 3.75em;
+  --p-5xl: 6.25em;
+  --p-6xl: 10em;
+  --p-7xl: 15em;
+
+  --text-xs: 0.75em;
+  --text-sm: 1em;
+  --text-md: 1.25em;
+  --text-lg: 1.75em;
+  --text-xl: 2.25em;
+  --text-2xl: 2.75em;
+
+  --border-xs: 0.15em;
+  --border-sm: 0.25em;
+  --border-md: 0.75em;
+  --border-lg: 1em;
+
+  --rounded-xs: 0.5em;
+  --rounded-sm: 1em;
+  --rounded-md: 1.5em;
+  --rounded-lg: 2em;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 html {
-  background-color: var(--gray);
-  color: var(--text);
+  scroll-behavior: smooth;
+  background-color: var(--off-white);
+  font-family: 'Rubik';
 }

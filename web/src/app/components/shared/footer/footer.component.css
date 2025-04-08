@@ -1,0 +1,9 @@
+footer {
+  background: var(--pitch-dark);
+}
+footer > p {
+  color: white;
+  font-size: var(--text-lg);
+  text-align: center;
+  padding: var(--p-md);
+}

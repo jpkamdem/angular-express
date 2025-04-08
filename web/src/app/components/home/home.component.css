@@ -1,0 +1,9 @@
+.container {
+  background-color: var(--pitch-dark);
+  border: var(--border-md) solid green;
+}
+
+.text {
+  color: var(--off-white);
+  font-size: var(--text-2xl);
+}

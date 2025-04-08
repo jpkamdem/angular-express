@@ -9,6 +9,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'users',
+    loadComponent: () =>
+      import('../app/components/users/users.component').then(
+        (c) => c.UsersComponent
+      ),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('../app/components/not-found/not-found.component').then(

@@ -4,7 +4,7 @@ import { extractErrorMessage } from "../utils/errors";
 import { APP_SECRET } from "../utils/secret";
 import jwt from "jsonwebtoken";
 
-class SessionController {
+class AuthController {
   async login(req: Request, res: Response) {
     try {
       const { email, username } = req.body;
@@ -36,6 +36,8 @@ class SessionController {
           jwt.sign({ username: username, email: email }, APP_SECRET),
           {
             httpOnly: true,
+            sameSite: 'strict',
+            secure: true,
             partitioned: true,
             maxAge: 60 * 60 * 1000,
             priority: "high",
@@ -61,4 +63,4 @@ class SessionController {
 
   async signup(req: Request, res: Response) {}
 }
-export const sessionController = new SessionController();
+export const authController = new AuthController();
