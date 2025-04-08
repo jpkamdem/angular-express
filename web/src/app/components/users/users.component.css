@@ -1,0 +1,40 @@
+.center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  width: 60vw;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: var(--p-lg);
+}
+
+ul > li {
+  padding: var(--p-sm);
+  /* background: var(--crimson); */
+  display: flex;
+  flex-flow: column wrap;
+}
+
+li {
+  padding: var(--p-lg);
+}
+
+li > p {
+  font-weight: 500;
+}
+
+li > :first-child {
+  background: var(--crimson);
+  padding: var(--p-sm) 0 var(--p-sm) var(--p-xs);
+  color: white;
+}
+
+li > :last-child {
+  color: var(--pitch-dark);
+  padding: var(--p-sm) 0 var(--p-sm) var(--p-sm);
+  border-bottom: var(--border-xs) solid lightgray;
+}

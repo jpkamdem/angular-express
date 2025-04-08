@@ -36,7 +36,7 @@ class AuthController {
           jwt.sign({ username: username, email: email }, APP_SECRET),
           {
             httpOnly: true,
-            sameSite: 'strict',
+            sameSite: 'none',
             secure: true,
             partitioned: true,
             maxAge: 60 * 60 * 1000,

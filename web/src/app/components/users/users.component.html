@@ -1,13 +1,14 @@
-@if (users()) {
+<div class="center">
+  @if (users()) {
   <ul>
     @for (user of users(); track user.id) {
-      <li>
-        <p>
-          {{user.name}}
-        </p>
-      </li>
+    <li>
+      <h3>{{user.name}}</h3>
+      <p>{{user.website}}</p>
+    </li>
     }
   </ul>
-} @else {
+  } @else {
   <p>rien du tout</p>
-}
+  }
+</div>

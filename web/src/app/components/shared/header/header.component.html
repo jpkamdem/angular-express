@@ -1,10 +1,11 @@
 <nav>
   <ul>
     <li>
-      <a routerLink="/" routerLinkActive="active">formulaire</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">formulaire</a>
     </li>
     <li>
-      <a routerLink="/users" routerLinkActive="active">liste des utilisateurs</a>
+      <a routerLink="/users" routerLinkActive="active">liste des
+        utilisateurs</a>
     </li>
   </ul>
 </nav>
