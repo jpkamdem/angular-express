@@ -1,3 +1,3 @@
 #! /bin/sh
-docker rmi web-project:1.0
-docker build -t web-project:1.0 .
+docker rmi angular-app:1.0
+docker build -t angular-app:1.0 .

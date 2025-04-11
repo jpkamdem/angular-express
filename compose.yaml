@@ -1,7 +1,7 @@
 services:
   server:
-    container_name: server
-    image: server-project:1.0
+    container_name: express-app
+    image: express-app:1.0
     ports:
       - "3001:3001"
     networks:
@@ -13,7 +13,7 @@ services:
       retries: 3
       start_period: 30s
   # db:
-  #   container_name: db
+  #   container_name: postgres
   #   image: postgres:16
   #   ports:
   #     - "${DB_PORT}:${DB_PORT}"
@@ -49,8 +49,8 @@ services:
   # depends_on:
   #   - db
   web:
-    container_name: web
-    image: web-project:1.0
+    container_name: angular-app
+    image: angular-app:1.0
     ports:
       - "8090:80"
     networks:

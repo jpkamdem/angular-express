@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { User } from '../../types/user';
 import { RouterLink } from '@angular/router';
 
@@ -12,19 +12,17 @@ export class UsersComponent {
   users = signal<User[] | null>(null);
 
   constructor() {
-    effect(() => {
-      fetch('http://127.0.0.1:3001/api/users', {
-        signal: AbortSignal.timeout(10000),
-        credentials: 'include',
-      })
-        .then((res) => res.json())
-        .then((datas) => {
-          if (!Array.isArray(datas)) {
-            return datas;
-          }
+    fetch('http://127.0.0.1:3001/api/users', {
+      signal: AbortSignal.timeout(10000),
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((datas) => {
+        if (!Array.isArray(datas)) {
+          return datas;
+        }
 
-          this.users.set(datas);
-        });
-    });
+        this.users.set(datas);
+      });
   }
 }
