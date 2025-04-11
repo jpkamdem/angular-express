@@ -18,20 +18,20 @@ export class OneUserComponent {
   readonly user = signal<User | null>(null);
 
   constructor() {
+    fetch('https://jsonplaceholder.typicode.com/users', {
+      signal: AbortSignal.timeout(10000),
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((datas) => {
+        if (!Array.isArray(datas)) {
+          return datas;
+        }
+
+        this.users.set(datas);
+      });
+
     effect(() => {
-      fetch('https://jsonplaceholder.typicode.com/users', {
-        signal: AbortSignal.timeout(10000),
-        credentials: 'include',
-      })
-        .then((res) => res.json())
-        .then((datas) => {
-          if (!Array.isArray(datas)) {
-            return datas;
-          }
-
-          this.users.set(datas);
-        });
-
       const foundUser = this.users().find((user) => user.id === this.userId);
       if (!foundUser) {
         return;
