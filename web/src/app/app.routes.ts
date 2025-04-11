@@ -16,6 +16,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'users/:id',
+    loadComponent: () =>
+      import('../app/components/one-user/one-user.component').then(
+        (c) => c.OneUserComponent
+      ),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('../app/components/not-found/not-found.component').then(

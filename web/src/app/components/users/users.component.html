@@ -3,8 +3,10 @@
   <ul>
     @for (user of users(); track user.id) {
     <li>
-      <h3>{{user.name}}</h3>
-      <p>{{user.website}}</p>
+      <a [routerLink]="['/users/', user.id]">
+        <h3>{{user.name}}</h3>
+        <p>{{user.website}}</p>
+      </a>
     </li>
     }
   </ul>

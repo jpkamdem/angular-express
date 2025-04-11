@@ -23,17 +23,17 @@ li {
   padding: var(--p-lg);
 }
 
-li > p {
+li > a > p {
   font-weight: 500;
 }
 
-li > :first-child {
+li > a :first-child {
   background: var(--crimson);
   padding: var(--p-sm) 0 var(--p-sm) var(--p-xs);
   color: white;
 }
 
-li > :last-child {
+li > a :last-child {
   color: var(--pitch-dark);
   padding: var(--p-sm) 0 var(--p-sm) var(--p-sm);
   border-bottom: var(--border-xs) solid lightgray;

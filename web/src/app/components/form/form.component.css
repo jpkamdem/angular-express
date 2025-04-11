@@ -31,7 +31,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin: var(--p-md) 0;
-  /* background: red; */
 }
 
 .form-container > div > input {

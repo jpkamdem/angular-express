@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,9 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   styleUrl: './form.component.css',
 })
 export class FormComponent {
+  private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
+
   login = this.formBuilder.group({
     email: [
       '',
@@ -37,35 +40,30 @@ export class FormComponent {
       return;
     }
 
-    async function send(email: string, username: string) {
-      try {
-        const response = await fetch('http://127.0.0.1:3001/api/auth/login', {
-          signal: AbortSignal.timeout(10000),
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'include',
-          body: JSON.stringify({ email, username }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        if (!response.ok) {
-          return {
-            datas: null,
-            error: {
-              message: response.statusText,
-              code: response.status,
-            },
-          };
-        }
-
-        const datas = await response.json();
-        console.log(datas);
-        return;
-      } catch (error: unknown) {
-        return { datas: null, error: { message: error, code: 0 } };
+    try {
+      const response = await fetch('http://127.0.0.1:3001/api/auth/login', {
+        signal: AbortSignal.timeout(10000),
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        body: JSON.stringify({ email, username }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (!response.ok) {
+        return {
+          datas: null,
+          error: {
+            message: response.statusText,
+            code: response.status,
+          },
+        };
       }
-    }
 
-    send(email, username);
+      this.router.navigate(['users']);
+      return;
+    } catch (error: unknown) {
+      return { datas: null, error: { message: error, code: 0 } };
+    }
   }
 
   async logout() {
@@ -87,8 +85,6 @@ export class FormComponent {
         };
       }
 
-      const datas = await response.json();
-      console.log('Déconnexion: ', datas);
       return;
     } catch (error) {
       return { datas: null, error: { message: error, code: 0 } };

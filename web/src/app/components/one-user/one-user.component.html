@@ -1,0 +1,12 @@
+@if (user()) {
+<div>
+  <section>
+    <li><span>ID : </span>{{user()?.id}}</li>
+    <li><span>Pseudonyme : </span>{{user()?.username}}</li>
+    <li><span>Adresse mail : </span>{{user()?.email}}</li>
+    <button class="edit-btn">Modifier</button>
+    <button class="del-btn">Supprimer</button>
+    <button class="prev-btn"><a [routerLink]="['/users']">Retour</a></button>
+  </section>
+</div>
+}

@@ -1,0 +1,56 @@
+div {
+  position: relative;
+  width: 33%;
+  margin-inline: auto;
+  align-content: center;
+  top: 50px;
+}
+
+section > li {
+  background-color: lightcoral;
+  padding: var(--p-md);
+  margin: var(--p-lg) 0;
+}
+
+li > span {
+  font-weight: 600;
+}
+
+button, button a {
+  border: none;
+  padding: var(--p-md);
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+}
+
+section button:hover {
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #0f7c05;
+}
+
+.edit-btn:hover {
+  background: #6bc962;
+  color: #0f7c05;
+}
+
+.del-btn {
+  background: #ff0000;
+}
+
+.del-btn:hover {
+  background: #fa9696;
+  color: #ff0000;
+}
+
+.prev-btn {
+  background: #004aac;
+}
+
+.prev-btn:hover, .prev-btn a:hover {
+  background: #8dbeff;
+  color: #004aac;
+}

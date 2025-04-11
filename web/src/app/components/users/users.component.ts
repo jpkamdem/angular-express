@@ -1,9 +1,10 @@
 import { Component, effect, signal } from '@angular/core';
 import { User } from '../../types/user';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
